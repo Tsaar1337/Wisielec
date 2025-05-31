@@ -65,6 +65,9 @@ class SubMenu(UIMouseFilterMixin, UIAnchorLayout):
 
         frame.add(button_box, anchor_x="center", anchor_y="center",align_y=-25)
 
+    def __del__(self):
+        print("Submenu destructor")
+
 
 class GameView(BaseView):
 
@@ -96,9 +99,34 @@ class GameView(BaseView):
             self.word_label.text = " ".join(self.masked_word)  # doda spacje między literami
 
 
+    def __del__(self):
+        print("GameView został usunięty z pamięci.")
 
 
 
+    def on_key_press(self, key, modifiers):
+        if key == arcade.key.ESCAPE and self.back_view:
+            self.window.show_view(self.back_view)
+
+            self.manager.clear()
+            self.manager.disable()
+
+            # Zerujemy referencję do GameView w SubMenu
+            if self.sub_menu:
+                self.sub_menu.game_view = None
+            self.sub_menu = None
+
+            # Zerujemy inne referencje
+            self.back_view = None
+            self.word_label = None
+            self.current_word = None
+            self.masked_word = None
+
+            # Usuwamy z menu_game_view.game_view
+            if hasattr(self.window.menu_game_view, "game_view"):
+                self.window.menu_game_view.game_view = None
 
 
-
+            # Wymuszenie garbage collection
+            import gc
+            gc.collect()
