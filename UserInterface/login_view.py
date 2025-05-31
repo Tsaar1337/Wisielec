@@ -12,13 +12,12 @@ class LoginView(BaseView):
     def __init__(self):
         super().__init__()
 
-        font = "Comic sans MS"
 
         # Tekst
         main_label = UILabel(text="Logowanie do systemu", width=300, text_color=arcade.color.BLACK, font_size=20,
-                             font_name=font)
-        login_label = UILabel(text="Login", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=font)
-        password_label = UILabel(text="Hasło", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=font)
+                             font_name=self.font)
+        login_label = UILabel(text="Login", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=self.font)
+        password_label = UILabel(text="Hasło", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=self.font)
         error_label = UILabel(text=" ", text_color=arcade.color.RED, font_size=12)
 
         # Pola wpisywane przez uzytkownika
@@ -28,9 +27,9 @@ class LoginView(BaseView):
                                             text_color=arcade.color.BLACK)
 
         # Przyciski
-        login_button = UIFlatButton(text="Zaloguj", width=120, font_name=font)
-        register_button = UIFlatButton(text="Zarejestruj", width=120, font_name=font)
-        quit_button = UIFlatButton(text="Wyjdź", width=120, font_name=font)
+        login_button = UIFlatButton(text="Zaloguj", width=120, font_name=self.font)
+        register_button = UIFlatButton(text="Zarejestruj", width=120, font_name=self.font)
+        quit_button = UIFlatButton(text="Wyjdź", width=120, font_name=self.font)
 
         # Oblsluga przycisku login
         @login_button.event("on_click")
@@ -60,7 +59,6 @@ class LoginView(BaseView):
             arcade.exit()
 
         # Inicjalizacja layoutow
-        self.anchor = self.manager.add(UIAnchorLayout())
         main_box = UIBoxLayout(vertical=True, space_between=20)
         grid_layout = UIGridLayout(column_count=2, row_count=2, horizontal_spacing=20, vertical_spacing=10)
         button_box = UIBoxLayout(vertical=False, space_between=20)

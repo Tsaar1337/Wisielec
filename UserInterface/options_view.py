@@ -4,14 +4,9 @@ from UserInterface.view_utils import BaseView
 
 
 class Options(BaseView):
-    def __init__(self):
-        super().__init__()
-        self.manager = UIManager()
-        self.manager.enable()
+    def __init__(self, back_view):
+        super().__init__(back_view)
 
-        # Anchor layout do pozycjonowania
-        self.anchor_layout = UIAnchorLayout()
-        self.manager.add(self.anchor_layout)
 
         # Tytuł
         title_box = UIBoxLayout(vertical=True, space_between=20)
@@ -20,10 +15,11 @@ class Options(BaseView):
             font_size=60,
             text_color=arcade.color.BLACK,
             width=600,
-            font_name="Arial"
+            font_name=self.font
         )
+
         title_box.add(main_label)
-        self.anchor_layout.add(
+        self.anchor.add(
             child=title_box,
             anchor_x="center",
             anchor_y="top",
@@ -52,7 +48,7 @@ class Options(BaseView):
         self.volume_slider.on_change = self.on_volume_change
         volume_box.add(self.volume_slider)
 
-        self.anchor_layout.add(
+        self.anchor.add(
             child=volume_box,
             anchor_x="center",
             anchor_y="center",
@@ -77,13 +73,3 @@ class Options(BaseView):
                 # Jak nie pójdzie, to restartujemy muzykę z nową głośnością
                 self.window.music_player.pause()
                 self.window.music_player = self.window.background_music.play(volume=volume, loop=True)
-
-    def on_show_view(self):
-        self.manager.enable()
-
-    def on_hide_view(self):
-        self.manager.disable()
-
-    def on_draw(self):
-        self.clear()
-        self.manager.draw()

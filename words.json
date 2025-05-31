@@ -1,0 +1,75 @@
+{
+  "categories": [
+    {
+      "name": "Zwierzęta",
+      "words": [
+        "kot", "pies", "lew", "tygrys", "słoń", "koń", "krowa", "koala",
+        "małpa", "żaba", "niedźwiedź", "wilk", "lis", "sowa", "pingwin",
+        "żółw", "delfin", "rekin", "sarna", "bóbr"
+      ]
+    },
+    {
+      "name": "Owoce",
+      "words": [
+        "jabłko", "banan", "gruszka", "pomarańcza", "śliwka", "truskawka",
+        "wiśnia", "malina", "cytryna", "arbuz", "ananas", "kiwi", "granat",
+        "brzoskwinia", "figa", "morela", "agrest", "czereśnia", "borówka"
+      ]
+    },
+    {
+      "name": "Kolory",
+      "words": [
+        "czerwony", "niebieski", "zielony", "żółty", "fioletowy", "pomarańczowy",
+        "różowy", "czarny", "biały", "szary", "brązowy", "granatowy",
+        "turkusowy", "liliowy", "bordowy", "złoty", "srebrny"
+      ]
+    },
+    {
+      "name": "Państwa",
+      "words": [
+        "polska", "niemcy", "francja", "włochy", "hiszpania", "portugalia",
+        "rosja", "ukraina", "kanada", "brazylia", "japonia", "australia",
+        "egipt", "indie", "mexico", "chiny", "argentyna", "grecja", "turcja"
+      ]
+    },
+    {
+      "name": "Samochody",
+      "words": [
+        "audi", "bmw", "mercedes", "volkswagen", "toyota", "honda", "ford",
+        "fiat", "tesla", "nissan", "mazda", "subaru", "peugeot", "renault",
+        "skoda", "volvo", "hyundai", "kia"
+      ]
+    },
+    {
+      "name": "Miasta",
+      "words": [
+        "warszawa", "kraków", "wrocław", "poznan", "gdańsk", "łódź",
+        "szczecin", "lublin", "katowice", "toruń", "bydgoszcz", "rzeszów",
+        "białystok", "gorzów", "zielona"
+      ]
+    },
+    {
+      "name": "Sporty",
+      "words": [
+        "piłka", "koszykówka", "siatkówka", "tenis", "pływanie", "bieganie",
+        "hokej", "rugby", "golf", "kolarstwo", "skoki", "łyżwiarstwo",
+        "szermierka", "wspinaczka", "kajakarstwo"
+      ]
+    },
+    {
+      "name": "Przedmioty szkolne",
+      "words": [
+        "matematyka", "fizyka", "chemia", "biologia", "historia", "język",
+        "geografia", "plastyka", "muzyka", "informatyka", "wf", "religia",
+        "wiedza", "technika"
+      ]
+    },
+    {
+      "name": "Części ciała",
+      "words": [
+        "ręka", "noga", "głowa", "palec", "ucho", "oko", "usta", "nos",
+        "serce", "żołądek", "kręgosłup", "płuco", "wątroba", "mózg"
+      ]
+    }
+  ]
+}

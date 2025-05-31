@@ -1,7 +1,7 @@
 from functools import partial
 
 import arcade
-from arcade.gui import UILabel, UIInputText
+from arcade.gui import UILabel, UIInputText, UIAnchorLayout
 
 
 # Funkcje odpowiadające za pokazywanie błedy w GUI(Walidacja)
@@ -19,7 +19,9 @@ class BaseView(arcade.View):
         super().__init__()
         self.manager = arcade.gui.UIManager()
         self.manager.enable()
+        self.anchor = self.manager.add(UIAnchorLayout())
         self.back_view = back_view
+        self.font = "Comic sans MS"
 
     def on_show_view(self):
         arcade.set_background_color(arcade.color.ASH_GREY)

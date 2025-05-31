@@ -11,12 +11,8 @@ from UserInterface.view_utils import BaseView
 class MainMenu(BaseView):
     def __init__(self):
         super().__init__()
-        self.anchor = self.manager.add(UIAnchorLayout())
-
-        font = "Comic sans MS"
-
         title_box = UIBoxLayout(vertical=True, space_between=20)
-        main_label = UILabel(text="Wisielec", width=1000, text_color=arcade.color.BLACK, font_size=100, font_name=font)
+        main_label = UILabel(text="Wisielec", width=1000, text_color=arcade.color.BLACK, font_size=100, font_name=self.font)
         title_box.add(main_label)
         self.anchor.add(
             child=title_box,

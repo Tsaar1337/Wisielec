@@ -14,23 +14,20 @@ from UserInterface.view_utils import schedule_clear_error_label, BaseView, Passw
 
 class RegisterView(BaseView):
 
-    def __init__(self):
-        super().__init__()
-        self.back_view=self.window.login_view
-
-        font = "Comic sans MS"
+    def __init__(self, back_view):
+        super().__init__(back_view)
 
         main_label = UILabel(text="Rejestracja do systemu", width=300, text_color=arcade.color.BLACK,
-                              font_size=20, font_name=font)
-        login_label = UILabel(text="Login", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=font)
-        password_label = UILabel(text="Hasło", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=font)
-        password_label2 = UILabel(text="Hasło", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=font)
+                              font_size=20, font_name=self.font)
+        login_label = UILabel(text="Login", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=self.font)
+        password_label = UILabel(text="Hasło", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=self.font)
+        password_label2 = UILabel(text="Hasło", width=50, text_color=arcade.color.BLACK, font_size=10, font_name=self.font)
 
         input_username_text = UIInputText(text="", width=200, border_color=arcade.color.BLACK, text_color=arcade.color.BLACK)
         input_password_text = PasswordInput(text="", width=200, border_color=arcade.color.BLACK, text_color=arcade.color.BLACK)
         input_password2_text = PasswordInput(text="", width=200, border_color=arcade.color.BLACK, text_color=arcade.color.BLACK)
 
-        register_button = UIFlatButton(text="Zarejestruj", width=200, font_name=font)
+        register_button = UIFlatButton(text="Zarejestruj", width=200, font_name=self.font)
         error_label = UILabel(text=" ", text_color=arcade.color.RED, font_size=12)
 
         @register_button.event("on_click")
@@ -68,8 +65,6 @@ class RegisterView(BaseView):
             self.window.show_view(self.window.login_view)
 
 
-        self.anchor = self.manager.add(UIAnchorLayout())
-
         main_box = UIBoxLayout(vertical=True, space_between=20)
         grid_layout = UIGridLayout(column_count=2, row_count=3, horizontal_spacing=20, vertical_spacing=10 )
 
@@ -81,7 +76,6 @@ class RegisterView(BaseView):
 
         grid_layout.add(column=0, row=2, child=password_label2)
         grid_layout.add(column=1, row=2, child=input_password2_text)
-
 
 
         main_box.add(main_label)

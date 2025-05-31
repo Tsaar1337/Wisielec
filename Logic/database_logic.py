@@ -1,6 +1,8 @@
+import json
+
 from sqlalchemy.exc import IntegrityError
 
-from Database import Session, User
+from Database import Session, User, Category, Word
 
 
 def login(username: str, password: str) -> User | None:
@@ -28,3 +30,24 @@ def get_all_users_order_by_wins() -> list[User]:
     users = session.query(User).order_by(User.wins).all()
     session.close()
     return users
+
+def load_words_from_json(path):
+    session = Session()
+
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    for cat_data in data["categories"]:
+        # Sprawdź, czy kategoria już istnieje
+        category = session.query(Category).filter_by(name=cat_data["name"]).first()
+        if not category:
+            category = Category(name=cat_data["name"])
+            session.add(category)
+            session.commit()  # żeby mieć dostęp do category.id
+
+        for word_text in cat_data["words"]:
+            word = Word(word=word_text, category_id=category.id)
+            session.add(word)
+
+    session.commit()
+    session.close()
