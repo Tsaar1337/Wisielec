@@ -3,6 +3,7 @@ import arcade
 from Database import init_db
 from Logic.database_logic import load_words_from_json
 from UserInterface import *
+from UserInterface.game_view import SubMenu
 from UserInterface.scoreboard_view import ScoreboardView
 
 
@@ -21,6 +22,7 @@ class HangmanGame(arcade.Window):
         self.game_view = GameView(self.menu_game_view)
         self.info_view = InfoView(self.menu_game_view)
         self.game_view = GameView(self.menu_game_view)
+
         self.show_view(self.game_view)
 
         def on_close(self):

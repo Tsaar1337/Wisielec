@@ -1,4 +1,5 @@
 import json
+import random
 
 from sqlalchemy.exc import IntegrityError
 
@@ -51,3 +52,14 @@ def load_words_from_json(path):
 
     session.commit()
     session.close()
+def get_random_word_from_category(category_name: str) -> Word | None:
+    session = Session()
+    category = session.query(Category).filter_by(name=category_name).first()
+    if not category:
+        session.close()
+        return None
+    words = session.query(Word).filter_by(category_id=category.id).all()
+    session.close()
+    if not words:
+        return None
+    return random.choice(words)
