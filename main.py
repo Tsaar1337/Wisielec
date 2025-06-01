@@ -21,7 +21,7 @@ class HangmanGame(arcade.Window):
         self.info_view = InfoView(self.menu_game_view)
 
 
-        self.show_view(self.main_view)
+        self.show_view(self.login_view)
 
         def on_close(self):
             # Zatrzymaj muzykę przy zamknięciu gry

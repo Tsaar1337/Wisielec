@@ -63,3 +63,4 @@ def get_random_word_from_category(category_name: str) -> Word | None:
     if not words:
         return None
     return random.choice(words)
+

@@ -57,3 +57,21 @@ class MainMenu(BaseView):
             anchor_y="center",
             align_y=-60
         )
+        current_user = getattr(self.window, "current_user", "Gość")
+
+
+        user_label = UILabel(
+            text=f"Zalogowany: {current_user}",
+            font_size=14,
+            text_color=arcade.color.DARK_GRAY,
+            width=200,
+            align="right"
+        )
+
+        self.anchor.add(
+            child=user_label,
+            anchor_x="right",
+            anchor_y="bottom",
+            align_x=-20,  # odsunięcie od prawej krawędzi
+            align_y=20  # odsunięcie od dolnej krawędzi
+        )
