@@ -2,6 +2,7 @@ import arcade
 
 from arcade.gui import UIFlatButton, UIManager, UIAnchorLayout, UILabel, UIBoxLayout, UIInputText, UIGridLayout
 from docutils.parsers.rst.directives.misc import Title
+from sqlalchemy.sql.functions import current_user
 
 from Database.models import User
 from Database.session import Session
@@ -57,10 +58,13 @@ class MainMenu(BaseView):
             anchor_y="center",
             align_y=-60
         )
-        current_user = getattr(self.window, "current_user", "Gość")
+        # current_user = getattr(self.window, "current_user", self.window.user_one.name)
+
+        current_user ="Gosc"
 
 
-        user_label = UILabel(
+
+        self.user_label = UILabel(
             text=f"Zalogowany: {current_user}",
             font_size=14,
             text_color=arcade.color.DARK_GRAY,
@@ -68,8 +72,9 @@ class MainMenu(BaseView):
             align="right"
         )
 
+
         self.anchor.add(
-            child=user_label,
+            child=self.user_label,
             anchor_x="right",
             anchor_y="bottom",
             align_x=-20,  # odsunięcie od prawej krawędzi

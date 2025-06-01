@@ -42,6 +42,8 @@ class LoginView(BaseView):
 
             if user:
                 print("Zalogowano")
+                self.window.user_one = user
+                self.window.main_view.user_label.text = username
                 self.window.show_view(self.window.main_view)
             else:
                 print("Nie zalogowano")

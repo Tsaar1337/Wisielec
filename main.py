@@ -1,6 +1,6 @@
 import arcade
 
-from Database import init_db
+from Database import init_db, User
 from Logic.database_logic import load_words_from_json
 from UserInterface import *
 from UserInterface.scoreboard_view import ScoreboardView
@@ -9,6 +9,8 @@ from UserInterface.scoreboard_view import ScoreboardView
 class HangmanGame(arcade.Window):
     def __init__(self):
         super().__init__(1280, 720, "Hangman")
+        self.user_one = None
+        self.user_two = None
         self.background_music = arcade.load_sound("Sounds/MuzykaGra.mp3")
         self.volume = 0.1
         self.music_player = self.background_music.play(self.volume, loop=True)
@@ -19,6 +21,7 @@ class HangmanGame(arcade.Window):
         self.menu_game_view = MenuGameView(self.main_view)
         self.scoreboard_view = ScoreboardView(self.main_view)
         self.info_view = InfoView(self.menu_game_view)
+
 
 
         self.show_view(self.login_view)

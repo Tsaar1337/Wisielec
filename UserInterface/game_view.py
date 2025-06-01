@@ -15,6 +15,8 @@ class SubMenu(UIMouseFilterMixin, UIAnchorLayout):
         self.game_view = game_view
         font = "Comic Sans MS"
 
+
+
         frame = self.add(UIAnchorLayout(width=400, height=650, size_hint=None))
         frame.with_padding(all=20)
 
@@ -77,6 +79,8 @@ class GameView(BaseView):
         self.sub_menu = SubMenu(self)
         self.sub_menu.visible = True
 
+        self.is_running = False
+
         self.anchor.add(child=self.sub_menu, anchor_x="center", anchor_y="center")
 
         # Label do wyświetlania słowa wisielca
@@ -97,6 +101,7 @@ class GameView(BaseView):
         self.current_word = word.word.lower()
         self.sub_menu.visible = False
         self.visible = True
+        self.is_running = True
 
         # Utwórz maskę - same podkreślenia na początek
         self.masked_word = "_" * len(self.current_word)
@@ -182,6 +187,7 @@ class GameView(BaseView):
                 self.message_label.text = "Przegrałeś! Przekroczono maksymalną liczbę błędów."
                 for button in self.letter_buttons:
                     button.disabled = True
+                self.word_label.text = " ".join(self.current_word.upper())
 
     def update_display(self):
         display_word = [letter if letter in self.guessed_letters else "_" for letter in self.current_word]
@@ -191,65 +197,67 @@ class GameView(BaseView):
     def __del__(self):
         print("GameView został usunięty z pamięci.")
 
-    def on_key_press(self, key, modifiers):
-        if key == arcade.key.ESCAPE and self.back_view:
-            self.window.show_view(self.back_view)
-
-            self.manager.clear()
-            self.manager.disable()
-
-            # Zerujemy referencję do GameView w SubMenu
-            if self.sub_menu:
-                self.sub_menu.game_view = None
-            self.sub_menu = None
-
-            # Zerujemy inne referencje
-            self.back_view = None
-            self.word_label = None
-            self.current_word = None
-            self.masked_word = None
-
-            # Usuwamy z menu_game_view.game_view
-            if hasattr(self.window.menu_game_view, "game_view"):
-                self.window.menu_game_view.game_view = None
-
-            # Wymuszenie garbage collection
-            import gc
-            gc.collect()
+    # def on_key_press(self, key, modifiers):
+    #     if key == arcade.key.ESCAPE and self.back_view:
+    #         self.window.show_view(self.back_view)
+    #
+    #         self.manager.clear()
+    #         self.manager.disable()
+    #
+    #         # Zerujemy referencję do GameView w SubMenu
+    #         if self.sub_menu:
+    #             self.sub_menu.game_view = None
+    #         self.sub_menu = None
+    #
+    #         # Zerujemy inne referencje
+    #         self.back_view = None
+    #         self.word_label = None
+    #         self.current_word = None
+    #         self.masked_word = None
+    #
+    #         # Usuwamy z menu_game_view.game_view
+    #         if hasattr(self.window.menu_game_view, "game_view"):
+    #             self.window.menu_game_view.game_view = None
+    #
+    #         # Wymuszenie garbage collection
+    #         import gc
+    #         gc.collect()
 
     def draw_hangman(self):
-        base_x = 1000
-        base_y = 1500
-        print("[DEBUG] Rysuję wisielca")
+        base_x = 500
+        base_y = 400
 
         # Szubienica
-        arcade.draw_line(base_x, base_y, base_x + 100, base_y, arcade.color.BLACK, 4)  # podstawa
-        arcade.draw_line(base_x + 50, base_y, base_x + 50, base_y + 200, arcade.color.BLACK, 4)  # słup
-        arcade.draw_line(base_x + 50, base_y + 200, base_x + 120, base_y + 200, arcade.color.BLACK, 4)  # belka
-        arcade.draw_line(base_x + 120, base_y + 200, base_x + 120, base_y + 170, arcade.color.BLACK, 4)
-        print("[DEBUG] Narysowalem szubienice")
+        arcade.draw_line(base_x, base_y, base_x + 150, base_y, arcade.color.BLACK, 5)  # podstawa
+        arcade.draw_line(base_x + 70, base_y, base_x + 70, base_y + 250, arcade.color.BLACK, 5)  # słup
+        arcade.draw_line(base_x + 70, base_y + 250, base_x + 150, base_y + 250, arcade.color.BLACK, 5)  # belka
+        arcade.draw_line(base_x + 150, base_y + 250, base_x + 150, base_y + 230, arcade.color.BLACK, 5)  # linka
+
+        # Pozycje względem głowy
+        head_x = base_x + 150
+        head_y = base_y + 210  # środek głowy
 
         # Głowa
         if self.errors >= 1:
-            arcade.draw_circle_outline(base_x + 120, base_y + 150, 20, arcade.color.BLACK, 4)
+            arcade.draw_circle_outline(head_x, head_y, 25, arcade.color.BLACK, 5)
 
         # Tułów
         if self.errors >= 2:
-            arcade.draw_line(base_x + 120, base_y + 130, base_x + 120, base_y + 90, arcade.color.BLACK, 4)
+            arcade.draw_line(head_x, head_y - 25, head_x, head_y - 110, arcade.color.BLACK, 5)
 
         # Ręce
         if self.errors >= 3:
-            arcade.draw_line(base_x + 120, base_y + 120, base_x + 100, base_y + 110, arcade.color.BLACK, 4)
+            arcade.draw_line(head_x, head_y - 40, head_x - 35, head_y - 70, arcade.color.BLACK, 5)
         if self.errors >= 4:
-            arcade.draw_line(base_x + 120, base_y + 120, base_x + 140, base_y + 110, arcade.color.BLACK, 4)
+            arcade.draw_line(head_x, head_y - 40, head_x + 35, head_y - 70, arcade.color.BLACK, 5)
 
         # Nogi
         if self.errors >= 5:
-            arcade.draw_line(base_x + 120, base_y + 90, base_x + 100, base_y + 70, arcade.color.BLACK, 4)
+            arcade.draw_line(head_x, head_y - 110, head_x - 30, head_y - 160, arcade.color.BLACK, 5)
         if self.errors >= 6:
-            arcade.draw_line(base_x + 120, base_y + 90, base_x + 140, base_y + 70, arcade.color.BLACK, 4)
+            arcade.draw_line(head_x, head_y - 110, head_x + 30, head_y - 160, arcade.color.BLACK, 5)
 
     def on_draw(self):
-        print("[DEBUG] on_draw działa")
-        self.draw_hangman()
         super().on_draw()
+        if self.is_running:
+            self.draw_hangman()
