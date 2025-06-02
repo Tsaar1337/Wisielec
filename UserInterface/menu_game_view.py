@@ -31,13 +31,13 @@ class MenuGameView(BaseView):
 
         @play_time_button.event("on_click")
         def on_click_back(event):
-            self.game_view = GameView(back_view=self)  # przekazujemy siebie jako back_view
-            self.window.show_view(self.game_view)  # pokazujemy nowy widok
+            self.window.game_view.time_mode = True
+            self.window.show_view(self.window.game_view_on_time)
 
-
-            # @play_health_button.event("on_click")
-        # def on_click_back(event):
-        #     self.window.show_view(self.window.game_view)
+        @play_health_button.event("on_click")
+        def on_click_back(event):
+            self.window.game_view.time_mode = False
+            self.window.show_view(self.window.game_view)
 
         @play_oponent_button.event("on_click")
         def on_click_back(event):

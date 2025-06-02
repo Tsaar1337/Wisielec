@@ -1,8 +1,11 @@
 import arcade
+from sqlalchemy.sql.operators import truediv
 
 from Database import init_db, User
 from Logic.database_logic import load_words_from_json
 from UserInterface import *
+from UserInterface.game_view import GameViewOnTime
+
 from UserInterface.scoreboard_view import ScoreboardView
 
 
@@ -19,6 +22,8 @@ class HangmanGame(arcade.Window):
         self.main_view = MainMenu()
         self.options_view=Options(self.main_view)
         self.menu_game_view = MenuGameView(self.main_view)
+        self.game_view = GameView(self.menu_game_view, True)
+        self.game_view_on_time = GameViewOnTime(self.menu_game_view, True)
         self.scoreboard_view = ScoreboardView(self.main_view)
         self.info_view = InfoView(self.menu_game_view)
 

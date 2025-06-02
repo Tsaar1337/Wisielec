@@ -6,6 +6,7 @@ from sqlalchemy.sql.functions import current_user
 
 from Database.models import User
 from Database.session import Session
+from Logic.database_logic import get_all_users_order_by_wins
 from UserInterface.view_utils import BaseView
 
 
@@ -80,3 +81,8 @@ class MainMenu(BaseView):
             align_x=-20,  # odsunięcie od prawej krawędzi
             align_y=20  # odsunięcie od dolnej krawędzi
         )
+
+
+
+
+
