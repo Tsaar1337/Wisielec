@@ -1,10 +1,9 @@
 import arcade
-from sqlalchemy.sql.operators import truediv
 
-from Database import init_db, User
-from Logic.database_logic import load_words_from_json
+from Database import init_db
+from Database.database_logic import load_words_from_json
 from UserInterface import *
-from UserInterface.game_view import GameViewOnTime, SubMenu
+from UserInterface.game_view import GameViewOnTime
 
 from UserInterface.scoreboard_view import ScoreboardView
 from UserInterface.two_player_game_view import TwoPlayerGameView

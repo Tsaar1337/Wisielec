@@ -1,9 +1,9 @@
 import hashlib
 
 import arcade
-from arcade.gui import UIFlatButton, UIManager, UIAnchorLayout, UILabel, UIBoxLayout, UIInputText, UIGridLayout
+from arcade.gui import UIFlatButton, UILabel, UIBoxLayout, UIInputText, UIGridLayout
 
-from Logic.database_logic import login
+from Database.database_logic import login
 from UserInterface.view_utils import schedule_clear_error_label, BaseView, PasswordInput
 
 

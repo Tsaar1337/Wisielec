@@ -1,7 +1,7 @@
 import arcade
-from arcade.gui import UIAnchorLayout, UIBoxLayout, UILabel, UIGridLayout, UIFlatButton
+from arcade.gui import UIBoxLayout, UILabel, UIGridLayout, UIFlatButton
 
-from Logic.database_logic import get_all_users_order_by_wins
+from Database.database_logic import get_all_users_order_by_wins
 from UserInterface.view_utils import BaseView
 
 

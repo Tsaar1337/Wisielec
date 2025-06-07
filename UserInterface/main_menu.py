@@ -1,12 +1,7 @@
 import arcade
 
-from arcade.gui import UIFlatButton, UIManager, UIAnchorLayout, UILabel, UIBoxLayout, UIInputText, UIGridLayout
-from docutils.parsers.rst.directives.misc import Title
-from sqlalchemy.sql.functions import current_user
+from arcade.gui import UIFlatButton, UILabel, UIBoxLayout, UIGridLayout
 
-from Database.models import User
-from Database.session import Session
-from Logic.database_logic import get_all_users_order_by_wins
 from UserInterface.view_utils import BaseView
 
 

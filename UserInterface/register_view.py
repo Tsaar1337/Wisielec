@@ -2,13 +2,9 @@ import hashlib
 import re
 
 import arcade
-from arcade.gui import UIFlatButton, UIManager, UIAnchorLayout, UILabel, UIBoxLayout, UIInputText, UIGridLayout
+from arcade.gui import UIFlatButton, UILabel, UIBoxLayout, UIInputText, UIGridLayout
 
-from Database.models import User
-from Database.session import Session
-from Logic.database_logic import register
-from UserInterface.login_view import LoginView
-from UserInterface.main_menu import MainMenu
+from Database.database_logic import register
 from UserInterface.view_utils import schedule_clear_error_label, BaseView, PasswordInput
 
 

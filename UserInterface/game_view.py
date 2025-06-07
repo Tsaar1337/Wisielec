@@ -1,13 +1,11 @@
 import time
 
 import arcade
-from arcade.gui import UIFlatButton, UIManager, UIAnchorLayout, UILabel, UIBoxLayout, UIInputText, UIGridLayout, \
-    UIMouseFilterMixin, NinePatchTexture
-from arcade.gui.experimental import UIScrollArea
+from arcade.gui import UIFlatButton, UIAnchorLayout, UILabel, UIBoxLayout, UIMouseFilterMixin
 from pygments.lexers import q
 
 from Database import Session, Category
-from Logic.database_logic import get_random_word_from_category, add_win_to_user, add_lose_to_user
+from Database.database_logic import get_random_word_from_category, add_win_to_user, add_lose_to_user
 from UserInterface.view_utils import BaseView
 
 
