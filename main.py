@@ -4,9 +4,10 @@ from sqlalchemy.sql.operators import truediv
 from Database import init_db, User
 from Logic.database_logic import load_words_from_json
 from UserInterface import *
-from UserInterface.game_view import GameViewOnTime
+from UserInterface.game_view import GameViewOnTime, SubMenu
 
 from UserInterface.scoreboard_view import ScoreboardView
+from UserInterface.two_player_game_view import TwoPlayerGameView
 
 
 class HangmanGame(arcade.Window):
@@ -26,6 +27,7 @@ class HangmanGame(arcade.Window):
         self.game_view_on_time = GameViewOnTime(self.menu_game_view, True)
         self.scoreboard_view = ScoreboardView(self.main_view)
         self.info_view = InfoView(self.menu_game_view)
+        self.two_player_game_view = TwoPlayerGameView(self.menu_game_view)
 
 
 
@@ -40,7 +42,7 @@ class HangmanGame(arcade.Window):
 
 if __name__ == "__main__":
     init_db()
-    load_words_from_json("words.json")
+    load_words_from_json("Database/words.json")
     game = HangmanGame()
     arcade.run()
 

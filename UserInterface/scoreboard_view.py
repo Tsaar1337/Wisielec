@@ -1,5 +1,5 @@
 import arcade
-from arcade.gui import UIAnchorLayout, UIBoxLayout, UILabel, UIGridLayout
+from arcade.gui import UIAnchorLayout, UIBoxLayout, UILabel, UIGridLayout, UIFlatButton
 
 from Logic.database_logic import get_all_users_order_by_wins
 from UserInterface.view_utils import BaseView
@@ -64,6 +64,24 @@ class ScoreboardView(BaseView):
             anchor_y="center",
             align_y=-100
         )
+
+
+        # Export do pliku
+
+        export_button = UIFlatButton(text="Exportuj wyniki", width=200)
+        @export_button.event("on_click")
+        def on_click_export(event):
+            with open("scoreboard.txt", "w") as file:
+                for i in range(6):
+                    user = get_all_users_order_by_wins()[i]
+                    file.write(f"{user.name} {user.wins} {user.losses}\n")
+
+        self.anchor.add(
+            child=export_button,
+            anchor_x="left",
+            anchor_y="top",
+            align_x=35,
+            align_y=-35)
 
 
     def update_scoreboard(self):
