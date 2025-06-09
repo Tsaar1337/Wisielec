@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Database package &#8212; Wisielec 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="database-package">
+<h1>Database package<a class="headerlink" href="#database-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-Database.database_logic">
+<span id="database-database-logic-module"></span><h2>Database.database_logic module<a class="headerlink" href="#module-Database.database_logic" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="Database.database_logic.add_lose_to_user">
+<span class="sig-prename descclassname"><span class="pre">Database.database_logic.</span></span><span class="sig-name descname"><span class="pre">add_lose_to_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Database.database_logic.add_lose_to_user" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Database.database_logic.add_win_to_user">
+<span class="sig-prename descclassname"><span class="pre">Database.database_logic.</span></span><span class="sig-name descname"><span class="pre">add_win_to_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Database.database_logic.add_win_to_user" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Database.database_logic.get_all_users_order_by_wins">
+<span class="sig-prename descclassname"><span class="pre">Database.database_logic.</span></span><span class="sig-name descname"><span class="pre">get_all_users_order_by_wins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#Database.models.User" title="Database.models.User"><span class="pre">User</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#Database.database_logic.get_all_users_order_by_wins" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Database.database_logic.get_random_word_from_category">
+<span class="sig-prename descclassname"><span class="pre">Database.database_logic.</span></span><span class="sig-name descname"><span class="pre">get_random_word_from_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Database.database_logic.get_random_word_from_category" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Database.database_logic.load_words_from_json">
+<span class="sig-prename descclassname"><span class="pre">Database.database_logic.</span></span><span class="sig-name descname"><span class="pre">load_words_from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Database.database_logic.load_words_from_json" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Database.database_logic.login">
+<span class="sig-prename descclassname"><span class="pre">Database.database_logic.</span></span><span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#Database.models.User" title="Database.models.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#Database.database_logic.login" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Database.database_logic.register">
+<span class="sig-prename descclassname"><span class="pre">Database.database_logic.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#Database.database_logic.register" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-Database.models">
+<span id="database-models-module"></span><h2>Database.models module<a class="headerlink" href="#module-Database.models" title="Link to this heading">¶</a></h2>
+<p>Moduł definiujący modele bazy danych SQLAlchemy dla aplikacji Wisielec.</p>
+<p>Ten moduł zawiera definicje wszystkich tabel w bazie danych, ich strukturę
+oraz relacje między nimi.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Database.models.Base">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Database.models.</span></span><span class="sig-name descname"><span class="pre">Base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Database.models.Base" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DeclarativeBase</span></code></p>
+<p>Klasa bazowa dla wszystkich modeli SQLAlchemy.</p>
+<p>Służy jako punkt wyjścia dla deklaratywnego mapowania modeli.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Base.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">MetaData</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">MetaData()</span></em><a class="headerlink" href="#Database.models.Base.metadata" title="Link to this definition">¶</a></dt>
+<dd><p>Refers to the <code class="xref py py-class docutils literal notranslate"><span class="pre">_schema.MetaData</span></code> collection that will be used
+for new <code class="xref py py-class docutils literal notranslate"><span class="pre">_schema.Table</span></code> objects.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><span class="xref std std-ref">orm_declarative_metadata</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Base.registry">
+<span class="sig-name descname"><span class="pre">registry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">_RegistryType</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;sqlalchemy.orm.decl_api.registry</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#Database.models.Base.registry" title="Link to this definition">¶</a></dt>
+<dd><p>Refers to the <code class="xref py py-class docutils literal notranslate"><span class="pre">_orm.registry</span></code> in use where new
+<code class="xref py py-class docutils literal notranslate"><span class="pre">_orm.Mapper</span></code> objects will be associated.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Database.models.Category">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Database.models.</span></span><span class="sig-name descname"><span class="pre">Category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Database.models.Category" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Database.models.Base" title="Database.models.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<p>Model reprezentujący kategorię słów w grze.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>id (int): Unikalny identyfikator kategorii (klucz główny)
+name (str): Nazwa kategorii (max 32 znaki)
+words (list[Word]): Lista słów należących do tej kategorii</p>
+</dd>
+<dt>Relationships:</dt><dd><p>words: Relacja jeden-do-wielu z modelem Word</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Category.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.Category.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Category.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.Category.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Category.words">
+<span class="sig-name descname"><span class="pre">words</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#Database.models.Word" title="Database.models.Word"><span class="pre">Word</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.Category.words" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Database.models.User">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Database.models.</span></span><span class="sig-name descname"><span class="pre">User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Database.models.User" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Database.models.Base" title="Database.models.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<p>Model reprezentujący użytkownika w systemie.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>id (int): Unikalny identyfikator użytkownika (klucz główny)
+name (str): Nazwa użytkownika (unikalna, max 32 znaki)
+password_hash (str): Hash hasła użytkownika (max 32 znaki)
+wins (int): Liczba wygranych gier
+losses (int): Liczba przegranych gier</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.User.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.User.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.User.losses">
+<span class="sig-name descname"><span class="pre">losses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.User.losses" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.User.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.User.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.User.password_hash">
+<span class="sig-name descname"><span class="pre">password_hash</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.User.password_hash" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.User.wins">
+<span class="sig-name descname"><span class="pre">wins</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.User.wins" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Database.models.Word">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Database.models.</span></span><span class="sig-name descname"><span class="pre">Word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Database.models.Word" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Database.models.Base" title="Database.models.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<p>Model reprezentujący słowo do odgadnięcia w grze.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>id (int): Unikalny identyfikator słowa (klucz główny)
+word (str): Słowo do odgadnięcia (max 32 znaki)
+category_id (int): Identyfikator kategorii (klucz obcy)
+category (Category): Relacja do kategorii, do której należy słowo</p>
+</dd>
+<dt>Relationships:</dt><dd><p>category: Relacja wiele-do-jednego z modelem Category</p>
+</dd>
+<dt>Note:</dt><dd><p>Każde słowo musi być przypisane do jakiejś kategorii (category_id nie może być NULL)</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Word.category">
+<span class="sig-name descname"><span class="pre">category</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#Database.models.Category" title="Database.models.Category"><span class="pre">Category</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.Word.category" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Word.category_id">
+<span class="sig-name descname"><span class="pre">category_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.Word.category_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Word.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.Word.id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Database.models.Word.word">
+<span class="sig-name descname"><span class="pre">word</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Mapped</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#Database.models.Word.word" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Database.session">
+<span id="database-session-module"></span><h2>Database.session module<a class="headerlink" href="#module-Database.session" title="Link to this heading">¶</a></h2>
+<p>Moduł konfiguracji bazy danych SQLAlchemy dla aplikacji Wisielec.</p>
+<p>Ten moduł zawiera podstawową konfigurację połączenia z bazą danych SQLite
+i tworzy fabrykę sesji SQLAlchemy.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>engine: Silnik SQLAlchemy skonfigurowany do pracy z bazą SQLite
+Session: Klasa fabryki sesji SQLAlchemy</p>
+</dd>
+<dt>Note:</dt><dd><p>Baza danych jest przechowywana w pliku ‘Wisielec.db’ w katalogu Database</p>
+</dd>
+</dl>
+</section>
+<section id="module-Database">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Database" title="Link to this heading">¶</a></h2>
+<p>Moduł inicjalizacyjny bazy danych dla aplikacji Wisielec.</p>
+<p>Ten moduł importuje wszystkie niezbędne komponenty bazodanowe i dostarcza
+funkcję do inicjalizacji struktury bazy danych.</p>
+<dl class="simple">
+<dt>Imports:</dt><dd><p>Session: Fabryka sesji SQLAlchemy
+engine: Silnik bazy danych SQLAlchemy
+Base: Klasa bazowa dla modeli deklaratywnych
+User: Model użytkownika
+Word: Model słowa
+Category: Model kategorii</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="Database.init_db">
+<span class="sig-prename descclassname"><span class="pre">Database.</span></span><span class="sig-name descname"><span class="pre">init_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Database.init_db" title="Link to this definition">¶</a></dt>
+<dd><p>Inicjalizuje strukturę bazy danych.</p>
+<p>Tworzy wszystkie tabele zdefiniowane w modelach, jeśli jeszcze nie istnieją.
+Wykorzystuje silnik zdefiniowany w module session.</p>
+<dl>
+<dt>Note:</dt><dd><ul class="simple">
+<li><p>Funkcja jest bezpieczna do wielokrotnego wywołania</p></li>
+<li><p>Nie nadpisuje istniejących tabel</p></li>
+<li><p>Tworzy tabele: User, Category, Word</p></li>
+</ul>
+</dd>
+<dt>Example:</dt><dd><p>from Database import init_db</p>
+<p># Inicjalizacja bazy danych
+init_db()</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Wisielec</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Jan Bagiński, Jakub Trawiński.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/Database.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

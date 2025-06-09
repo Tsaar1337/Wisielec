@@ -59,12 +59,12 @@ def get_random_word_from_category(category_name):
     session = Session()
     try:
         # Używamy joinedload aby załadować relację category od razu
-        word = session.query(Word).options(joinedload(Word.category))\
-            .join(Category)\
-            .filter(Category.name == category_name)\
-            .order_by(func.random())\
+        word = session.query(Word).options(joinedload(Word.category)) \
+            .join(Category) \
+            .filter(Category.name == category_name) \
+            .order_by(func.random()) \
             .first()
-        
+
         if word:
             # Zapisujemy nazwę kategorii jako atrybut obiektu
             word._category_name = word.category.name if word.category else None

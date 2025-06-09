@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>UserInterface package &#8212; Wisielec 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="userinterface-package">
+<h1>UserInterface package<a class="headerlink" href="#userinterface-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-UserInterface.game_view">
+<span id="userinterface-game-view-module"></span><h2>UserInterface.game_view module<a class="headerlink" href="#module-UserInterface.game_view" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.game_view.</span></span><span class="sig-name descname"><span class="pre">GameView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Główny widok gry wisielec.</p>
+<p>Klasa odpowiedzialna za logikę gry, wyświetlanie planszy, obsługę
+wprowadzania liter i sprawdzanie stanu gry.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>MAX_ERRORS (int): Maksymalna liczba dozwolonych błędów
+word_label (UILabel): Etykieta wyświetlająca aktualny stan odgadywanego słowa
+message_label (UILabel): Etykieta wyświetlająca komunikaty gry
+letter_buttons (list): Lista przycisków z literami
+guessed_letters (set): Zbiór odgadniętych liter
+errors (int): Licznik błędów
+current_word (str): Aktualne słowo do odgadnięcia
+is_running (bool): Flag indicating if the game is currently running</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView.MAX_ERRORS">
+<span class="sig-name descname"><span class="pre">MAX_ERRORS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#UserInterface.game_view.GameView.MAX_ERRORS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView.draw_hangman">
+<span class="sig-name descname"><span class="pre">draw_hangman</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameView.draw_hangman" title="Link to this definition">¶</a></dt>
+<dd><p>Rysuje elementy wisielca na ekranie.</p>
+<p>Rysuje poszczególne części wisielca w zależności od liczby popełnionych błędów.
+Wisielec składa się z 6 części (głowa, tułów, 2 ręce, 2 nogi).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView.on_draw">
+<span class="sig-name descname"><span class="pre">on_draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameView.on_draw" title="Link to this definition">¶</a></dt>
+<dd><p>Metoda wywoływana przy każdym odświeżeniu ekranu.</p>
+<p>Wywołuje metodę rysowania nadrzędnej klasy i dodatkowo rysuje wisielca,
+jeśli gra jest aktywna i menu nie jest widoczne.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView.on_letter_click">
+<span class="sig-name descname"><span class="pre">on_letter_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">letter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameView.on_letter_click" title="Link to this definition">¶</a></dt>
+<dd><p>Obsługuje kliknięcie przycisku z literą.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>letter (str): Wybrana litera</p>
+</dd>
+<dt>Note:</dt><dd><ul class="simple">
+<li><p>Sprawdza czy litera występuje w słowie</p></li>
+<li><p>Aktualizuje wyświetlane słowo</p></li>
+<li><p>Sprawdza warunki wygranej/przegranej</p></li>
+<li><p>Aktualizuje licznik błędów</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView.on_show_view">
+<span class="sig-name descname"><span class="pre">on_show_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameView.on_show_view" title="Link to this definition">¶</a></dt>
+<dd><p>Metoda wywoływana przy pokazywaniu widoku.</p>
+<p>Resetuje stan gry przy każdym pokazaniu widoku.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView.reset_game">
+<span class="sig-name descname"><span class="pre">reset_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameView.reset_game" title="Link to this definition">¶</a></dt>
+<dd><p>Resetuje wszystkie parametry gry do wartości początkowych.</p>
+<p>Czyści słowo, odgadnięte litery, błędy, etykiety.
+Dezaktywuje wszystkie przyciski liter i pokazuje menu wyboru kategorii.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView.start_game_with_word">
+<span class="sig-name descname"><span class="pre">start_game_with_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameView.start_game_with_word" title="Link to this definition">¶</a></dt>
+<dd><p>Rozpoczyna nową grę z podanym słowem.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>word: Obiekt słowa zawierający właściwość word (string) do odgadnięcia</p>
+</dd>
+<dt>Note:</dt><dd><p>Metoda resetuje stan gry, ukrywa menu wyboru kategorii i pokazuje
+interfejs gry z przyciskami liter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameView.update_display">
+<span class="sig-name descname"><span class="pre">update_display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameView.update_display" title="Link to this definition">¶</a></dt>
+<dd><p>Aktualizuje wyświetlany tekst odgadywanego słowa.</p>
+<p>Zamienia znaki w słowie na podkreślniki dla liter, które nie zostały jeszcze odgadnięte,
+a odgadnięte litery pokazuje w odpowiednich miejscach.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameViewOnTime">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.game_view.</span></span><span class="sig-name descname"><span class="pre">GameViewOnTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameViewOnTime" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.game_view.GameView" title="UserInterface.game_view.GameView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GameView</span></code></a></p>
+<p>Rozszerzenie klasy GameView o funkcjonalność gry na czas.</p>
+<p>Ta klasa dodaje 60-sekundowy limit czasowy na odgadnięcie słowa.
+Po przekroczeniu limitu czasu gra kończy się przegraną.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>start_time (float): Czas rozpoczęcia gry
+elapsed_time (int): Upłynięty czas w sekundach
+timer_label (UILabel): Etykieta wyświetlająca pozostały czas</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameViewOnTime.on_letter_click">
+<span class="sig-name descname"><span class="pre">on_letter_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">letter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameViewOnTime.on_letter_click" title="Link to this definition">¶</a></dt>
+<dd><p>Obsługuje kliknięcie litery w trybie gry na czas.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>letter (str): Wybrana litera</p>
+</dd>
+<dt>Note:</dt><dd><ul class="simple">
+<li><p>W przypadku wygranej w trybie na czas, automatycznie pobiera następne
+słowo z tej samej kategorii</p></li>
+<li><p>Aktualizuje statystyki użytkownika (wygrane/przegrane)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameViewOnTime.on_update">
+<span class="sig-name descname"><span class="pre">on_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameViewOnTime.on_update" title="Link to this definition">¶</a></dt>
+<dd><p>Aktualizuje stan gry, w szczególności timer.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>delta_time: Czas od ostatniej aktualizacji</p>
+</dd>
+<dt>Note:</dt><dd><ul class="simple">
+<li><p>Aktualizuje wyświetlany czas</p></li>
+<li><p>Sprawdza czy nie przekroczono limitu 60 sekund</p></li>
+<li><p>Kończy grę po przekroczeniu limitu czasu</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameViewOnTime.reset_game">
+<span class="sig-name descname"><span class="pre">reset_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameViewOnTime.reset_game" title="Link to this definition">¶</a></dt>
+<dd><p>Resetuje stan gry, w tym timer.</p>
+<p>Wywołuje reset z klasy nadrzędnej i dodatkowo czyści wyświetlanie timera.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.game_view.GameViewOnTime.start_game_with_word">
+<span class="sig-name descname"><span class="pre">start_game_with_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.GameViewOnTime.start_game_with_word" title="Link to this definition">¶</a></dt>
+<dd><p>Rozpoczyna nową grę z wybranym słowem w trybie na czas.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>word: Obiekt słowa zawierający właściwość word (string) i kategorię</p>
+</dd>
+<dt>Note:</dt><dd><p>Zapisuje kategorię słowa do wykorzystania przy następnym słowie
+w trybie gry na czas.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.game_view.SubMenu">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.game_view.</span></span><span class="sig-name descname"><span class="pre">SubMenu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.game_view.SubMenu" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UIMouseFilterMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">UIAnchorLayout</span></code></p>
+<p>Klasa reprezentująca podmenu wyboru kategorii w grze wisielec.</p>
+<p>Ta klasa tworzy interfejs użytkownika zawierający przyciski dla każdej dostępnej
+kategorii słów w grze. Po wybraniu kategorii, rozpoczyna się nowa gra.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>game_view (GameView): Referencja do widoku gry
+font (str): Nazwa czcionki używanej w menu</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.info_view">
+<span id="userinterface-info-view-module"></span><h2>UserInterface.info_view module<a class="headerlink" href="#module-UserInterface.info_view" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.info_view.InfoView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.info_view.</span></span><span class="sig-name descname"><span class="pre">InfoView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.info_view.InfoView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.login_view">
+<span id="userinterface-login-view-module"></span><h2>UserInterface.login_view module<a class="headerlink" href="#module-UserInterface.login_view" title="Link to this heading">¶</a></h2>
+<p>Moduł implementujący widok logowania do systemu gry Wisielec.
+Zapewnia interfejs do uwierzytelniania użytkowników oraz nawigację do rejestracji.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.login_view.LoginView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.login_view.</span></span><span class="sig-name descname"><span class="pre">LoginView</span></span><a class="headerlink" href="#UserInterface.login_view.LoginView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Widok logowania do systemu gry.</p>
+<p>Implementuje interfejs logowania zawierający:
+- Pola do wprowadzania nazwy użytkownika i hasła
+- Przyciski logowania, rejestracji i wyjścia
+- Obsługę błędów logowania</p>
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.main_menu">
+<span id="userinterface-main-menu-module"></span><h2>UserInterface.main_menu module<a class="headerlink" href="#module-UserInterface.main_menu" title="Link to this heading">¶</a></h2>
+<p>Moduł implementujący główne menu gry Wisielec.
+Zapewnia dostęp do wszystkich głównych funkcji aplikacji poprzez intuicyjny interfejs użytkownika.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.main_menu.MainMenu">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.main_menu.</span></span><span class="sig-name descname"><span class="pre">MainMenu</span></span><a class="headerlink" href="#UserInterface.main_menu.MainMenu" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Główne menu gry Wisielec.</p>
+<p>Klasa implementuje główny ekran menu gry, zawierający:
+- Tytuł gry
+- Przyciski nawigacyjne do różnych sekcji
+- Informację o zalogowanym użytkowniku</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>user_label (UILabel): Etykieta wyświetlająca nazwę zalogowanego użytkownika.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.menu_game_view">
+<span id="userinterface-menu-game-view-module"></span><h2>UserInterface.menu_game_view module<a class="headerlink" href="#module-UserInterface.menu_game_view" title="Link to this heading">¶</a></h2>
+<p>Moduł zawierający widok menu wyboru trybu gry, umożliwiający wybór różnych
+wariantów rozgrywki oraz dostęp do informacji o grze.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.menu_game_view.MenuGameView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.menu_game_view.</span></span><span class="sig-name descname"><span class="pre">MenuGameView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.menu_game_view.MenuGameView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Widok menu wyboru trybu gry.</p>
+<p>Klasa implementuje interfejs użytkownika umożliwiający wybór różnych
+trybów rozgrywki, w tym:
+- Grę na czas
+- Grę na życia
+- Grę przeciwko innemu graczowi
+Dodatkowo zapewnia dostęp do informacji o grze.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>back_view (arcade.View): Widok, do którego nastąpi powrót.</p>
+</dd>
+<dt>Attributes:</dt><dd><p>anchor (UIAnchorLayout): Główny kontener dla elementów UI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.options_view">
+<span id="userinterface-options-view-module"></span><h2>UserInterface.options_view module<a class="headerlink" href="#module-UserInterface.options_view" title="Link to this heading">¶</a></h2>
+<p>Moduł zawierający widok opcji aplikacji, umożliwiający konfigurację ustawień,
+takich jak głośność dźwięku.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.options_view.Options">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.options_view.</span></span><span class="sig-name descname"><span class="pre">Options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.options_view.Options" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Widok opcji aplikacji umożliwiający konfigurację ustawień.</p>
+<p>Klasa implementuje interfejs użytkownika do zarządzania ustawieniami aplikacji,
+w tym kontrolę głośności dźwięku. Zapewnia interaktywny suwak do regulacji
+głośności oraz wizualną reprezentację aktualnego poziomu głośności.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>back_view (arcade.View): Widok, do którego nastąpi powrót po wyjściu z opcji.</p>
+</dd>
+<dt>Attributes:</dt><dd><p>volume_label (UILabel): Etykieta wyświetlająca aktualny poziom głośności.
+volume_slider (UISlider): Suwak do regulacji poziomu głośności.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.options_view.Options.on_volume_change">
+<span class="sig-name descname"><span class="pre">on_volume_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.options_view.Options.on_volume_change" title="Link to this definition">¶</a></dt>
+<dd><p>Obsługuje zdarzenie zmiany poziomu głośności.</p>
+<p>Aktualizuje głośność w aplikacji i odświeża wyświetlany poziom
+głośności w interfejsie użytkownika.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>event: Zdarzenie zmiany wartości suwaka (niewykorzystywane).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.options_view.Options.set_music_volume">
+<span class="sig-name descname"><span class="pre">set_music_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.options_view.Options.set_music_volume" title="Link to this definition">¶</a></dt>
+<dd><p>Ustawia nowy poziom głośności dla odtwarzacza muzyki.</p>
+<p>Próbuje zmienić głośność “na żywo”. Jeśli to nie jest możliwe,
+zatrzymuje i ponownie uruchamia odtwarzacz muzyki z nową głośnością.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>volume (float): Nowy poziom głośności w zakresie 0.0-1.0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.options_view.Options.update_volume_label">
+<span class="sig-name descname"><span class="pre">update_volume_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.options_view.Options.update_volume_label" title="Link to this definition">¶</a></dt>
+<dd><p>Aktualizuje tekst etykiety wyświetlającej poziom głośności.</p>
+<p>Konwertuje wartość głośności na procenty i wyświetla ją w etykiecie.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.register_view">
+<span id="userinterface-register-view-module"></span><h2>UserInterface.register_view module<a class="headerlink" href="#module-UserInterface.register_view" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.register_view.RegisterView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.register_view.</span></span><span class="sig-name descname"><span class="pre">RegisterView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.register_view.RegisterView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Widok formularza rejestracji użytkownika.</p>
+<p>Klasa odpowiedzialna za obsługę procesu rejestracji nowego użytkownika w systemie.
+Zapewnia interfejs użytkownika z polami do wprowadzenia loginu i hasła oraz
+mechanizmy walidacji wprowadzonych danych.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>back_view: Widok, do którego nastąpi powrót po anulowaniu rejestracji.</p>
+</dd>
+<dt>Attributes:</dt><dd><p>anchor: Główny kontener dla elementów UI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.scoreboard_view">
+<span id="userinterface-scoreboard-view-module"></span><h2>UserInterface.scoreboard_view module<a class="headerlink" href="#module-UserInterface.scoreboard_view" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.scoreboard_view.ScoreboardView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.scoreboard_view.</span></span><span class="sig-name descname"><span class="pre">ScoreboardView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.scoreboard_view.ScoreboardView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Widok tablicy wyników gry.</p>
+<p>Klasa odpowiedzialna za wyświetlanie i zarządzanie tablicą wyników graczy.
+Prezentuje statystyki graczy w formie tabelarycznej, zawierającej nazwy użytkowników,
+liczbę wygranych i przegranych gier.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>back_view: Widok, do którego nastąpi powrót po opuszczeniu tablicy wyników.</p>
+</dd>
+<dt>Attributes:</dt><dd><p>username_labels (list): Lista etykiet zawierających nazwy użytkowników.
+wins_labels (list): Lista etykiet zawierających liczby wygranych.
+losses_labels (list): Lista etykiet zawierających liczby przegranych.
+scoreboard_grid_layout (UIGridLayout): Układ siatki zawierający tabelę wyników.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.scoreboard_view.ScoreboardView.on_show_view">
+<span class="sig-name descname"><span class="pre">on_show_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.scoreboard_view.ScoreboardView.on_show_view" title="Link to this definition">¶</a></dt>
+<dd><p>Metoda wywoływana przy wyświetleniu widoku.</p>
+<p>Aktualizuje tablicę wyników przy każdym wyświetleniu widoku.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.scoreboard_view.ScoreboardView.update_scoreboard">
+<span class="sig-name descname"><span class="pre">update_scoreboard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.scoreboard_view.ScoreboardView.update_scoreboard" title="Link to this definition">¶</a></dt>
+<dd><p>Aktualizuje zawartość tablicy wyników.</p>
+<p>Pobiera aktualną listę użytkowników posortowaną według liczby wygranych
+i aktualizuje wyświetlane dane. Jeśli jest mniej niż 6 graczy,
+pozostałe wiersze są czyszczone.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.two_player_game_view">
+<span id="userinterface-two-player-game-view-module"></span><h2>UserInterface.two_player_game_view module<a class="headerlink" href="#module-UserInterface.two_player_game_view" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.two_player_game_view.TwoPlayerGameView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.two_player_game_view.</span></span><span class="sig-name descname"><span class="pre">TwoPlayerGameView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.two_player_game_view.TwoPlayerGameView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#UserInterface.view_utils.BaseView" title="UserInterface.view_utils.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Widok trybu gry dla dwóch graczy.</p>
+<p>Klasa odpowiedzialna za wyświetlanie interfejsu użytkownika w trybie gry wieloosobowej.
+Dziedziczy po klasie BaseView i tworzy podstawowy układ UI z tytułem i informacją o statusie.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>back_view: Widok, do którego nastąpi powrót po opuszczeniu obecnego widoku.</p>
+</dd>
+<dt>Attributes:</dt><dd><p>anchor: Główny kontener dla elementów UI.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-UserInterface.view_utils">
+<span id="userinterface-view-utils-module"></span><h2>UserInterface.view_utils module<a class="headerlink" href="#module-UserInterface.view_utils" title="Link to this heading">¶</a></h2>
+<p>Moduł zawierający podstawowe komponenty interfejsu użytkownika i narzędzia pomocnicze.</p>
+<p>Moduł dostarcza:
+- Funkcje do obsługi komunikatów o błędach
+- Podstawową klasę widoku z wspólną funkcjonalnością
+- Specjalistyczny komponent do wprowadzania haseł</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.view_utils.BaseView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.view_utils.</span></span><span class="sig-name descname"><span class="pre">BaseView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">back_view</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.view_utils.BaseView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">View</span></code></p>
+<p>Podstawowa klasa widoku implementująca wspólne funkcjonalności.</p>
+<p>Zapewnia podstawową strukturę dla wszystkich widoków w aplikacji, w tym:
+- Zarządzanie UI
+- Obsługę powrotu do poprzedniego widoku
+- Wspólne ustawienia wyglądu</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>back_view (arcade.View, optional): Widok, do którego nastąpi powrót po naciśnięciu ESC.</dt><dd><p>Domyślnie None.</p>
+</dd>
+</dl>
+</dd>
+<dt>Attributes:</dt><dd><p>manager (arcade.gui.UIManager): Zarządca interfejsu użytkownika.
+anchor (UIAnchorLayout): Główny kontener dla elementów UI.
+back_view (arcade.View): Referencja do poprzedniego widoku.
+font (str): Domyślna czcionka używana w widoku.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.view_utils.BaseView.on_draw">
+<span class="sig-name descname"><span class="pre">on_draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.view_utils.BaseView.on_draw" title="Link to this definition">¶</a></dt>
+<dd><p>Wywoływane przy każdym odświeżeniu ekranu.</p>
+<p>Czyści ekran i rysuje elementy interfejsu użytkownika.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.view_utils.BaseView.on_hide_view">
+<span class="sig-name descname"><span class="pre">on_hide_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.view_utils.BaseView.on_hide_view" title="Link to this definition">¶</a></dt>
+<dd><p>Wywoływane gdy widok jest ukrywany.</p>
+<p>Dezaktywuje menedżera UI.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.view_utils.BaseView.on_key_press">
+<span class="sig-name descname"><span class="pre">on_key_press</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifiers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.view_utils.BaseView.on_key_press" title="Link to this definition">¶</a></dt>
+<dd><p>Obsługuje zdarzenia naciśnięcia klawiszy.</p>
+<p>Implementuje funkcjonalność powrotu do poprzedniego widoku
+po naciśnięciu klawisza ESC.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>key: Kod naciśniętego klawisza.
+modifiers: Modyfikatory klawiatury (np. Shift, Ctrl).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.view_utils.BaseView.on_show_view">
+<span class="sig-name descname"><span class="pre">on_show_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.view_utils.BaseView.on_show_view" title="Link to this definition">¶</a></dt>
+<dd><p>Wywoływane gdy widok jest pokazywany.</p>
+<p>Ustawia kolor tła i aktywuje menedżera UI.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="UserInterface.view_utils.PasswordInput">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UserInterface.view_utils.</span></span><span class="sig-name descname"><span class="pre">PasswordInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.view_utils.PasswordInput" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UIInputText</span></code></p>
+<p>Specjalistyczny komponent do wprowadzania haseł.</p>
+<p>Rozszerza standardowe pole tekstowe, dodając funkcjonalność maskowania
+wprowadzanego tekstu gwiazdkami (*) przy jednoczesnym zachowaniu
+rzeczywistej wartości hasła.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>real_text (str): Przechowuje rzeczywisty tekst hasła.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.view_utils.PasswordInput.get_real_text">
+<span class="sig-name descname"><span class="pre">get_real_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#UserInterface.view_utils.PasswordInput.get_real_text" title="Link to this definition">¶</a></dt>
+<dd><p>Zwraca rzeczywisty tekst hasła.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: Niezamaskowany tekst hasła.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="UserInterface.view_utils.PasswordInput.on_event">
+<span class="sig-name descname"><span class="pre">on_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#UserInterface.view_utils.PasswordInput.on_event" title="Link to this definition">¶</a></dt>
+<dd><p>Obsługuje zdarzenia związane z wprowadzaniem tekstu.</p>
+<p>Przechwytuje wprowadzany tekst, aktualizuje rzeczywistą wartość
+hasła i wyświetla odpowiednią liczbę gwiazdek.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>event: Zdarzenie wprowadzania tekstu.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: Flaga wskazująca czy zdarzenie zostało obsłużone.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="UserInterface.view_utils.clear_error_label">
+<span class="sig-prename descclassname"><span class="pre">UserInterface.view_utils.</span></span><span class="sig-name descname"><span class="pre">clear_error_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UILabel</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#UserInterface.view_utils.clear_error_label" title="Link to this definition">¶</a></dt>
+<dd><p>Czyści tekst z etykiety błędu.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>delta_time (float): Czas, który upłynął od ostatniej aktualizacji (wymagany przez arcade).
+text_label (UILabel): Etykieta, której tekst ma zostać wyczyszczony.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="UserInterface.view_utils.schedule_clear_error_label">
+<span class="sig-prename descclassname"><span class="pre">UserInterface.view_utils.</span></span><span class="sig-name descname"><span class="pre">schedule_clear_error_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UILabel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#UserInterface.view_utils.schedule_clear_error_label" title="Link to this definition">¶</a></dt>
+<dd><p>Planuje wyczyszczenie etykiety błędu po określonym czasie.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text_label (UILabel): Etykieta do wyczyszczenia.
+delay (float, optional): Opóźnienie w sekundach przed wyczyszczeniem. Domyślnie 2.0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-UserInterface">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-UserInterface" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Wisielec</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Jan Bagiński, Jakub Trawiński.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/UserInterface.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

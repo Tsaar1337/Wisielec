@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>main module &#8212; Wisielec 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-main">
+<span id="main-module"></span><h1>main module<a class="headerlink" href="#module-main" title="Link to this heading">¶</a></h1>
+<p>Główny moduł gry Wisielec (Hangman).</p>
+<p>Ten moduł zawiera główną klasę gry oraz punkt wejściowy aplikacji.
+Inicjalizuje okno gry, zarządza widokami i obsługuje podstawowe
+funkcjonalności jak muzyka w tle.</p>
+<dl class="simple">
+<dt>Dependencies:</dt><dd><ul class="simple">
+<li><p>arcade: Biblioteka do tworzenia gier 2D</p></li>
+<li><p>Database: Moduł obsługi bazy danych</p></li>
+<li><p>UserInterface: Moduł zawierający wszystkie widoki gry</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.HangmanGame">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">HangmanGame</span></span><a class="headerlink" href="#main.HangmanGame" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Window</span></code></p>
+<p>Główna klasa gry dziedzicząca po arcade.Window.</p>
+<p>Zarządza głównym oknem gry, wszystkimi widokami oraz muzyką w tle.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>user_one: Pierwszy gracz
+user_two: Drugi gracz (w trybie dwuosobowym)
+background_music: Ścieżka dźwiękowa gry
+volume (float): Głośność muzyki (0.0 - 1.0)
+music_player: Obiekt odtwarzacza muzyki</p>
+</dd>
+<dt>Views:</dt><dd><p>login_view: Widok logowania
+register_view: Widok rejestracji
+main_view: Widok menu głównego
+options_view: Widok opcji
+menu_game_view: Widok menu gry
+game_view: Widok pojedynczej gry
+game_view_on_time: Widok gry na czas
+scoreboard_view: Widok tablicy wyników
+info_view: Widok informacji
+two_player_game_view: Widok gry dwuosobowej</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Wisielec</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Jan Bagiński, Jakub Trawiński.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/main.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
